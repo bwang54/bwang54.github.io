@@ -3,11 +3,13 @@ title: "Exam"
 description: "For Exam Purpose."
 ---
 
+## Current Time
+
 {{< rawhtml >}}
 	<iframe src="https://free.timeanddate.com/clock/i9vdnfrv/n179" frameborder="0" width="500" height="500"></iframe>
 {{< /rawhtml >}}
 
-
+## Exam Time
 {{< rawhtml >}}
         <style>
             .my_text
@@ -19,7 +21,7 @@ description: "For Exam Purpose."
         </style>
 <div contenteditable="true" class="my_text">
 
-  Exam Time:
+  
 
 </div>
 {{< /rawhtml >}}
