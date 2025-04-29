@@ -6,7 +6,7 @@ description: "For Exam Purpose."
 ## Current Time
 
 {{< rawhtml >}}
-	<iframe src="https://free.timeanddate.com/clock/i9vdnfrv/n179" frameborder="0" width="500" height="500"></iframe>
+    <iframe src="https://free.timeanddate.com/clock/i9vdnvc2/n179/fs48/tt0/tw0/tm1/ts1/tb4" frameborder="0" width="293" height="112"></iframe>
 {{< /rawhtml >}}
 
 ## Exam Time
