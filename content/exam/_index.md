@@ -4,7 +4,7 @@ description: "For Exam Purpose."
 ---
 
 {{< rawhtml >}}
-	<iframe src="https://free.timeanddate.com/clock/i9vdnfrv/n179" frameborder="0" width="113" height="18"></iframe>
+	<iframe src="https://free.timeanddate.com/clock/i9vdnfrv/n179" frameborder="0" width="500" height="500"></iframe>
 {{< /rawhtml >}}
 
 
@@ -24,6 +24,7 @@ description: "For Exam Purpose."
 </div>
 {{< /rawhtml >}}
 
+## Additional Instructions
 1. Feel free to remove the staple
 2. Please leave your phone on the table
 3. Write down all your work on the Answer Sheet clearly
