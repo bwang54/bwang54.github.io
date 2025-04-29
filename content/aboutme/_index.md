@@ -3,9 +3,11 @@ title: "About Me"
 description: "A little more about myself."
 ---
 
+I am an Assistant Professor in Finance.
 
+I joined the Department of Accounting and Finance at Kean University in Fall 2021.
 
-[Kean Website](https://www.kean.edu/directory/bo-wang)
+[My Kean Website](https://www.kean.edu/directory/bo-wang)
 
 
 ## Education
