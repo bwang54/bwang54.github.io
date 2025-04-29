@@ -12,7 +12,7 @@ menu:
     main:
         - name: AboutMe
           url: aboutme/
-          weight: 5 
+          weight: 1 
         - name: Papers
           url: papers/
           weight: 2
@@ -24,7 +24,7 @@ menu:
           weight: 4 
         - name: Resources
           url: resources/
-          weight: 6
+          weight: 5
         - name: Exam
           url: exam/
           weight: 6
@@ -55,7 +55,7 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Professor Bo Wang
+          title: Bo Wang's Website
           subtitle: "I am an Assistant Professor in Department of Accounting and Finance at Kean University. My research focuses on empirical corporate finance."
           imageUrl: "Bo Wang Headshot.jpg"
           imageWidth: 160
@@ -77,7 +77,7 @@ params:
     socialIcons:
         - name: Google Scholar
           url: https://scholar.google.com/citations?view_op=list_works&hl=en&user=fw_ndEQAAAAJ
-        - name: Research Gate
+        - name: ResearchGate
           url: https://www.google.com/url?q=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FBo-Wang-140&sa=D&sntz=1&usg=AOvVaw1ZNGhv4HwaIgQkm27dl3h3
         - name: LinkedIn
           url: https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbo-wang-1762aa31%2F&sa=D&sntz=1&usg=AOvVaw3cGSjrEvUXOdp7ahvkdpVS
