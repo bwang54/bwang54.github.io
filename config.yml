@@ -10,8 +10,8 @@ taxonomies:
 
 menu:
     main:
-        - name: Books
-          url: books/
+        - name: AboutMe
+          url: aboutme/
           weight: 5 
         - name: Papers
           url: papers/
@@ -19,11 +19,14 @@ menu:
         - name: Courses
           url: courses/
           weight: 3
-        - name: Data
-          url: data/
+        - name: Advising
+          url: advising/
           weight: 4 
-        - name: Blog
-          url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+        - name: Resources
+          url: resources/
+          weight: 6
+        - name: Exam
+          url: exam/
           weight: 6
 
 params:
@@ -42,7 +45,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["books","courses","papers","data"]
+    MainSections: ["aboutme","papers","courses","advising","resources", "exam"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -54,46 +57,32 @@ params:
           enabled: true
           title: Professor Bo Wang
           subtitle: "I am an Assistant Professor in Department of Accounting and Finance at Kean University. My research focuses on empirical corporate finance."
-          imageUrl: "picture.jpeg"
+          imageUrl: "Bo Wang Headshot.jpg"
           imageWidth: 160
-          imageHeight: 160
+          imageHeight: 238
           buttons:
+            - name: AboutMe
+              url: aboutme/
             - name: Papers
               url: papers/
             - name: Courses
               url: courses/
-            - name: Data
-              url: data/
-            - name: Books
-              url: books/
-            - name: Tags
-              url: tags/
-            - name: Archive
-              url: archive/
-            - name: Blog
-              url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+            - name: Advising
+              url: advising/
+            - name: Resources
+              url: resources/
+            - name: Exam
+              url: exam/
 
     socialIcons:
-        - name: CV
-          url: cv.pdf
-        - name: Email
-          url: mailto:moritz.maria.von.igelfeld@gmail.com
-        - name: Zoom
-          url: https://www.zoom.us/my/igelfeld
-        - name: Location
-          url: location/
-        - name: Office Hours
-          url: officehours/
         - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
-        - name: GitHub
-          url: https://github.com/pmichaillat
-        - name: Substack
-          url: https://pmichaillat.substack.com
-        - name: YouTube
-          url: https://www.youtube.com/@alexandermccallsmithoffici9000
-        - name: Twitter
-          url: https://twitter.com/McCallSmith
+          url: https://scholar.google.com/citations?view_op=list_works&hl=en&user=fw_ndEQAAAAJ
+        - name: Research Gate
+          url: https://www.google.com/url?q=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FBo-Wang-140&sa=D&sntz=1&usg=AOvVaw1ZNGhv4HwaIgQkm27dl3h3
+        - name: LinkedIn
+          url: https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbo-wang-1762aa31%2F&sa=D&sntz=1&usg=AOvVaw3cGSjrEvUXOdp7ahvkdpVS
+        - name: University Website
+          url: https://www.kean.edu/directory/bo-wang
 
     assets:
         disableScrollBarStyle: true
@@ -101,7 +90,7 @@ params:
         hiddenInList: false
         hiddenInSingle: true
     label:
-      text: "Moritz-Maria von Igelfeld"
+      text: "Bo Wang"
       icon: favicon.ico
       iconHeight: 18
 
