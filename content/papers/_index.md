@@ -20,3 +20,8 @@ I work on empirical corporate finance, and my research interests include entrepr
 [2] **Wang, Bo**, Zehui Wang, Jun Wen, and Xiaotian T. Zhang. 2021. "Executive Gender and Firm Environmental Management: Evidence from CFO Transitions" Sustainability 13 (7): 3653. [DOI](https://doi.org/10.3390/su13073653) 
 
 [1] Lu, Haitian, **Bo Wang**, Haizhi Wang, and Tianyu Zhao. 2020. "Does Social Capital Matter for Peer-to-Peer-Lending? Empirical Evidence."  Pacific-Basin Finance Journal 61:101338.[DOI](https://doi.org/10.1016/j.pacfin.2020.101338)
+
+## Conference Presentations
+
+- Academy of Management 2025 Annual Meeting, Presentation, July 2025
+- 2024 FMA Annual Meeting, Presentation, Oct 2024
