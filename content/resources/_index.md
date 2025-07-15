@@ -20,3 +20,5 @@ description: "Research Related"
 - [Writing Tips for Economics Research Papers](https://docs.iza.org/dp15057.pdf)
 
 - [integrate ChatGPT into your research](https://drive.google.com/file/d/1VCuTw8LyXviy5DdMbUNVvTvOXD5XyjFK/view)
+
+- [DID Literature and Updates](https://asjadnaqvi.github.io/DiD/) by Asjad Naqvi
