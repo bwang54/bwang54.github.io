@@ -39,10 +39,10 @@ description: "For Exam Purpose."
 <div class="large-text">
 {{< /rawhtml >}}
 
-1. Feel free to remove the staple  
-2. Please leave your phone on the table  
-3. Write down all your work on the Answer Sheet clearly  
-4. Part 1: "T/F", "A/B", "True/False" are all accepted  
+1. You may remove the staple if needed.
+2. Place your phone on your desk and keep it there for the duration of the exam.
+3. Write all your work and answers clearly on the Answer Sheet.
+4. Any cheating or use of unauthorized devices will result in your exam being invalid and reported.
 
 {{< rawhtml >}}
 </div>
