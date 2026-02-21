@@ -8,7 +8,6 @@
         /* 1. CUSTOM FONT LOADING FROM GITHUB */
         @font-face {
             font-family: 'SchoolDaysFont';
-            /* Ensure this exactly matches the filename you uploaded to the static folder */
             src: url('SchoolDaysLines.ttf') format('truetype'); 
         }
 
@@ -67,13 +66,16 @@
         .header { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.2rem; font-family: Arial, sans-serif; }
         .header-line { border-bottom: 1px solid #000; width: 250px; display: inline-block; }
 
-        /* Handwriting CSS - Let the font do the work */
-        .writing-section { margin-bottom: 25px; }
+        /* Handwriting CSS - Evenly Spaced Lines */
+        .writing-section { 
+            margin-bottom: 0px; /* Removed grouping margin */
+        }
         .writing-line {
-            font-size: 45px; /* Adjusted to keep text on a single line */
+            font-size: 45px; 
             line-height: 1.2; 
-            white-space: pre; /* Forces trailing spaces to render */
-            overflow: hidden; /* Clips the trailing spaces perfectly at the margin */
+            white-space: pre; 
+            overflow: hidden; 
+            margin-bottom: 35px; /* Adds a large, equal gap below every line */
         }
 
         /* Math Grid Layout */
@@ -129,7 +131,6 @@
     </div>
 
     <script>
-        // 60 spaces to act as the trailing guideline and the empty practice lines
         const BLANK_LINE_CHARACTER = "                                                            "; 
 
         function generateSentences() {
@@ -165,9 +166,7 @@
             }
 
             for (let i = 0; i < 5; i++) {
-                // Injects the sentence AND the trailing blank spaces
                 document.getElementById(`sentence-${i + 1}`).innerText = selectedSentences[i] + BLANK_LINE_CHARACTER;
-                // Injects just the blank spaces for the empty line
                 document.getElementById(`blank-${i + 1}`).innerText = BLANK_LINE_CHARACTER;
             }
         }
@@ -204,7 +203,6 @@
                         }
                     }
                 } else { 
-                    // Addition logic
                     num1 = Math.floor(Math.random() * (maxNumber - 1)) + 1;
                     const maxNum2 = maxNumber - num1;
                     
@@ -215,7 +213,6 @@
                     num2 = Math.floor(Math.random() * maxNum2) + 1;
 
                     if (!allowBorrowing) {
-                        // Enforce no carrying
                         if ((num1 % 10) + (num2 % 10) > 9) {
                             failSafeCounter++;
                             continue;
