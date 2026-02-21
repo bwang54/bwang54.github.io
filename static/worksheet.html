@@ -63,19 +63,19 @@
         .controls button.print-btn { background: #28a745; }
 
         /* Header Section */
-        .header { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.2rem; font-family: Arial, sans-serif; }
+        .header { display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 1.2rem; font-family: Arial, sans-serif; }
         .header-line { border-bottom: 1px solid #000; width: 250px; display: inline-block; }
 
-        /* Handwriting CSS - Grouped Lines with Reduced Spacing */
+        /* Handwriting CSS - Compressed to fit 13 lines on one page */
         .writing-section { 
-            margin-bottom: 20px; /* Groups the sentence and its practice line together */
+            margin-bottom: 15px; 
         }
         .writing-line {
-            font-size: 45px; 
+            font-size: 42px; /* Slightly reduced font size */
             line-height: 1.2; 
             white-space: pre; 
             overflow: hidden; 
-            margin-bottom: 15px; /* Reduced to conserve vertical space */
+            margin-bottom: 10px; /* Reduced bottom margin */
         }
 
         /* Math Grid Layout */
@@ -123,7 +123,7 @@
             <div class="writing-section"><div class="writing-line" id="sentence-4"></div><div class="writing-line" id="blank-4"></div></div>
             <div class="writing-section"><div class="writing-line" id="sentence-5"></div><div class="writing-line" id="blank-5"></div></div>
             
-            <div class="writing-section" style="margin-top: 30px;">
+            <div class="writing-section" style="margin-top: 15px;">
                 <div class="writing-line" id="free-1"></div>
                 <div class="writing-line" id="free-2"></div>
                 <div class="writing-line" id="free-3"></div>
@@ -171,13 +171,11 @@
                 if (uniqueLetters.size === 26) isPangram = true;
             }
 
-            // Populate the 5 practice sentences
             for (let i = 0; i < 5; i++) {
                 document.getElementById(`sentence-${i + 1}`).innerText = selectedSentences[i] + BLANK_LINE_CHARACTER;
                 document.getElementById(`blank-${i + 1}`).innerText = BLANK_LINE_CHARACTER;
             }
 
-            // Populate the 3 free writing rows
             for (let i = 1; i <= 3; i++) {
                 document.getElementById(`free-${i}`).innerText = BLANK_LINE_CHARACTER;
             }
