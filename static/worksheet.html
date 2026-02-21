@@ -8,8 +8,8 @@
         /* 1. CUSTOM FONT LOADING FROM GITHUB */
         @font-face {
             font-family: 'SchoolDaysFont';
-            /* UPDATE THIS TO MATCH YOUR EXACT FONT FILE NAME */
-            src: url('/School Days Lines.ttf') format('truetype'); 
+            /* Ensure this exactly matches the filename you uploaded to the static folder */
+            src: url('SchoolDaysLines.ttf') format('truetype'); 
         }
 
         /* General Reset and Print Setup */
@@ -21,7 +21,6 @@
             print-color-adjust: exact !important;
         }
         body {
-            /* Fallback to Arial if the font filename is incorrect */
             font-family: 'SchoolDaysFont', Arial, sans-serif;
             background-color: #e9ecef;
             color: #000;
@@ -53,9 +52,10 @@
             width: 8.5in; border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             display: flex; justify-content: space-between; align-items: center;
-            font-family: Arial, sans-serif; /* Keep UI legible */
+            font-family: Arial, sans-serif;
         }
         .controls label { font-weight: bold; margin-right: 15px; }
+        .controls select { padding: 5px; margin-left: 5px; }
         .controls input[type="number"] { width: 60px; padding: 5px; margin-left: 5px; }
         .controls button {
             padding: 10px 20px; font-size: 1rem; cursor: pointer;
@@ -70,17 +70,17 @@
         /* Handwriting CSS - Let the font do the work */
         .writing-section { margin-bottom: 25px; }
         .writing-line {
-            font-size: 45px; /* Adjust this to scale the font on the page */
+            font-size: 45px; /* Adjusted to keep text on a single line */
             line-height: 1.2; 
-            white-space: pre; /* Forces spaces to render as blank handwriting lines */
-            overflow: hidden;
+            white-space: pre; /* Forces trailing spaces to render */
+            overflow: hidden; /* Clips the trailing spaces perfectly at the margin */
         }
 
         /* Math Grid Layout */
         .math-container {
             display: grid; grid-template-columns: 1fr 1fr;
             row-gap: 40px; column-gap: 60px; margin-top: 30px; font-size: 1.8rem;
-            font-family: Arial, sans-serif; /* Use standard font for clear math */
+            font-family: Arial, sans-serif;
         }
         .math-problem { display: flex; align-items: center; }
         .math-problem span { display: inline-block; min-width: 40px; text-align: right; }
@@ -92,9 +92,16 @@
 
     <div class="controls no-print">
         <div>
+            <label>Type: 
+                <select id="input-type">
+                    <option value="subtraction">Subtraction</option>
+                    <option value="addition">Addition</option>
+                    <option value="mix">Mix</option>
+                </select>
+            </label>
             <label>Questions: <input type="number" id="input-questions" value="20" min="1" max="40"></label>
             <label>Max Number: <input type="number" id="input-max" value="20" min="5" max="100"></label>
-            <label>Allow Borrowing: <input type="checkbox" id="input-borrowing"></label>
+            <label>Allow Borrow/Carry: <input type="checkbox" id="input-borrowing"></label>
         </div>
         <div>
             <button onclick="generateNewWorksheet()">Regenerate Data</button>
@@ -122,8 +129,7 @@
     </div>
 
     <script>
-        // The characters used to draw the empty line for writing.
-        // If your purchased font requires an underscore _ to draw a blank line, change this string.
+        // 60 spaces to act as the trailing guideline and the empty practice lines
         const BLANK_LINE_CHARACTER = "                                                            "; 
 
         function generateSentences() {
@@ -159,13 +165,14 @@
             }
 
             for (let i = 0; i < 5; i++) {
-                document.getElementById(`sentence-${i + 1}`).innerText = selectedSentences[i];
-                // Injects the blank characters so the font draws the empty guidelines below the sentence
+                // Injects the sentence AND the trailing blank spaces
+                document.getElementById(`sentence-${i + 1}`).innerText = selectedSentences[i] + BLANK_LINE_CHARACTER;
+                // Injects just the blank spaces for the empty line
                 document.getElementById(`blank-${i + 1}`).innerText = BLANK_LINE_CHARACTER;
             }
         }
 
-        function generateMathProblems(numberOfQuestions, maxNumber, allowBorrowing) {
+        function generateMathProblems(numberOfQuestions, maxNumber, allowBorrowing, calcType) {
             const mathGrid = document.getElementById('math-grid');
             mathGrid.innerHTML = ''; 
 
@@ -174,27 +181,58 @@
             let failSafeCounter = 0;
 
             while (uniqueQuestions.size < numberOfQuestions) {
-                if (failSafeCounter > 50) break;
+                if (failSafeCounter > 50) {
+                    console.warn("Sample space exhausted. Stopping early.");
+                    break;
+                }
 
-                const num1 = Math.floor(Math.random() * (maxNumber - 1)) + 2;
-                const num2 = Math.floor(Math.random() * num1) + 1;
+                let currentOp = calcType;
+                if (calcType === 'mix') {
+                    currentOp = Math.random() < 0.5 ? 'addition' : 'subtraction';
+                }
 
-                if (!allowBorrowing) {
-                    // Strict check to ensure the ones digit of num1 is >= ones digit of num2
-                    if ((num1 % 10) < (num2 % 10)) {
+                let num1, num2;
+
+                if (currentOp === 'subtraction') {
+                    num1 = Math.floor(Math.random() * (maxNumber - 1)) + 2;
+                    num2 = Math.floor(Math.random() * num1) + 1; 
+
+                    if (!allowBorrowing) {
+                        if ((num1 % 10) < (num2 % 10)) {
+                            failSafeCounter++;
+                            continue; 
+                        }
+                    }
+                } else { 
+                    // Addition logic
+                    num1 = Math.floor(Math.random() * (maxNumber - 1)) + 1;
+                    const maxNum2 = maxNumber - num1;
+                    
+                    if (maxNum2 < 1) {
                         failSafeCounter++;
-                        continue; 
+                        continue;
+                    }
+                    num2 = Math.floor(Math.random() * maxNum2) + 1;
+
+                    if (!allowBorrowing) {
+                        // Enforce no carrying
+                        if ((num1 % 10) + (num2 % 10) > 9) {
+                            failSafeCounter++;
+                            continue;
+                        }
                     }
                 }
 
-                const equationString = `${num1}-${num2}`;
+                const operatorSymbol = currentOp === 'subtraction' ? '-' : '+';
+                const equationString = `${num1}${operatorSymbol}${num2}`;
+                
                 if (uniqueQuestions.has(equationString)) {
                     failSafeCounter++;
                     continue;
                 }
 
                 uniqueQuestions.add(equationString);
-                problemsToRender.push({ num1, num2 });
+                problemsToRender.push({ num1, operatorSymbol, num2 });
                 failSafeCounter = 0; 
             }
 
@@ -202,19 +240,23 @@
                 const problemDiv = document.createElement('div');
                 problemDiv.className = 'math-problem';
                 problemDiv.innerHTML = `
-                    <span>${problem.num1}</span> <span class="operator">-</span> <span>${problem.num2}</span> 
-                    <span class="equals">=</span> <span class="answer-line"></span>
+                    <span>${problem.num1}</span> 
+                    <span class="operator">${problem.operatorSymbol}</span> 
+                    <span>${problem.num2}</span> 
+                    <span class="equals">=</span> 
+                    <span class="answer-line"></span>
                 `;
                 mathGrid.appendChild(problemDiv);
             });
         }
 
         function generateNewWorksheet() {
+            const type = document.getElementById('input-type').value;
             const questions = parseInt(document.getElementById('input-questions').value, 10);
             const max = parseInt(document.getElementById('input-max').value, 10);
             const borrowing = document.getElementById('input-borrowing').checked;
 
-            generateMathProblems(questions, max, borrowing);
+            generateMathProblems(questions, max, borrowing, type);
             generateSentences();
         }
 
