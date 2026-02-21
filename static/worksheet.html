@@ -7,7 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* General Reset and Print Setup */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            /* Forces browsers to print background colors and gradients */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
         body {
             font-family: 'Comic Neue', cursive, sans-serif;
             background-color: #e9ecef;
@@ -28,7 +35,10 @@
             .page {
                 margin: 0; padding: 0; box-shadow: none;
                 width: 100%; height: 100%;
-                page-break-after: always;
+                page-break-after: always; /* Break after pages */
+            }
+            .page:last-of-type {
+                page-break-after: auto; /* Prevents the blank 3rd page */
             }
             .no-print { display: none !important; }
         }
@@ -51,20 +61,35 @@
         .controls button.print-btn { background: #28a745; }
 
         /* Header Section */
-        .header { display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 1.2rem; }
+        .header { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.2rem; }
         .header-line { border-bottom: 1px solid #000; width: 250px; display: inline-block; }
 
-        /* Handwriting Guidelines CSS */
-        .writing-section { margin-bottom: 40px; }
+        /* Handwriting Guidelines CSS - Calibrated 4-Line Grid */
+        .writing-section { margin-bottom: 20px; }
         .writing-line {
-            position: relative; height: 60px; margin-bottom: 20px;
-            font-size: 2.2rem; line-height: 60px; padding-left: 10px;
+            position: relative; 
+            height: 80px; /* Scaled to fit 10 lines strictly on page 1 */
+            font-size: 55px; /* Font size calculated to match the 40px Cap Height */
+            line-height: 1; 
+            padding-top: 10px; /* Aligns text exactly with the baseline */
+            padding-left: 10px;
+            
+            /* Drawing the 4 exact lines */
             background-image: 
-                linear-gradient(to right, transparent 0%, transparent 100%),
-                repeating-linear-gradient(to right, #999 0, #999 10px, transparent 10px, transparent 20px),
-                linear-gradient(to right, #000 0%, #000 100%);
-            background-position: 0 0, 0 30px, 0 60px;
-            background-size: 100% 2px, 100% 2px, 100% 2px;
+                linear-gradient(#333, #333), /* Top Ascender (Solid) */
+                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px), /* Midline (Dashed) */
+                linear-gradient(#333, #333), /* Baseline (Solid) */
+                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px); /* Descender (Dashed) */
+            background-position: 
+                0 15px, /* Position 1: Ascender */
+                0 35px, /* Position 2: Midline (20px gap) */
+                0 55px, /* Position 3: Baseline (20px gap) */
+                0 75px; /* Position 4: Descender (20px gap) */
+            background-size: 
+                100% 1px, 
+                100% 1px, 
+                100% 1.5px, /* Slightly thicker baseline for visual grounding */
+                100% 1px;
             background-repeat: no-repeat;
         }
 
@@ -113,7 +138,6 @@
     </div>
 
     <script>
-        // --- SENTENCE GENERATOR ---
         function generateSentences() {
             const sentencePool = [
                 "The quick brown fox jumps.", "Lazy dogs nap by the river.", "A big jet flies up high.",
@@ -151,7 +175,6 @@
             }
         }
 
-        // --- MATH GENERATOR ---
         function generateMathProblems(numberOfQuestions, maxNumber, allowBorrowing) {
             const mathGrid = document.getElementById('math-grid');
             mathGrid.innerHTML = ''; 
@@ -195,19 +218,15 @@
             });
         }
 
-        // --- GUI CONTROLLER ---
         function generateNewWorksheet() {
-            // Read values from the GUI inputs
             const questions = parseInt(document.getElementById('input-questions').value, 10);
             const max = parseInt(document.getElementById('input-max').value, 10);
             const borrowing = document.getElementById('input-borrowing').checked;
 
-            // Execute the engines
             generateMathProblems(questions, max, borrowing);
             generateSentences();
         }
 
-        // Run once on initial page load
         window.onload = generateNewWorksheet;
     </script>
 </body>
