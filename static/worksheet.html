@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Practice Worksheet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* General Reset and Print Setup */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            /* Forces browsers to print background colors and gradients */
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
         }
         body {
-            font-family: 'Comic Neue', cursive, sans-serif;
+            font-family: 'Quicksand', 'Comic Sans MS', sans-serif;
             background-color: #e9ecef;
             color: #000;
         }
@@ -35,10 +34,10 @@
             .page {
                 margin: 0; padding: 0; box-shadow: none;
                 width: 100%; height: 100%;
-                page-break-after: always; /* Break after pages */
+                page-break-after: always;
             }
             .page:last-of-type {
-                page-break-after: auto; /* Prevents the blank 3rd page */
+                page-break-after: auto; 
             }
             .no-print { display: none !important; }
         }
@@ -64,31 +63,39 @@
         .header { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.2rem; }
         .header-line { border-bottom: 1px solid #000; width: 250px; display: inline-block; }
 
-        /* Handwriting Guidelines CSS - Calibrated 4-Line Grid */
+        /* Handwriting Guidelines CSS - Scaled with Vertical Bounds */
         .writing-section { margin-bottom: 20px; }
         .writing-line {
             position: relative; 
-            height: 80px; /* Scaled to fit 10 lines strictly on page 1 */
-            font-size: 55px; /* Font size calculated to match the 40px Cap Height */
+            height: 65px; /* Scaled down to prevent text wrapping */
+            font-size: 42px; /* Font reduced proportionally */
+            font-weight: 600; /* Added slight weight for pencil-like legibility */
+            white-space: nowrap; /* Forces text to never break lines */
+            overflow: hidden; /* Secures boundaries */
             line-height: 1; 
-            padding-top: 10px; /* Aligns text exactly with the baseline */
-            padding-left: 10px;
+            padding-top: 4px; /* Aligns the Quicksand font directly on the baseline */
+            padding-left: 15px;
+            padding-right: 15px;
+            
+            /* Vertical bounds (The box effect) */
+            border-left: 2px solid #333;
+            border-right: 2px solid #333;
             
             /* Drawing the 4 exact lines */
             background-image: 
-                linear-gradient(#333, #333), /* Top Ascender (Solid) */
-                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px), /* Midline (Dashed) */
-                linear-gradient(#333, #333), /* Baseline (Solid) */
-                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px); /* Descender (Dashed) */
+                linear-gradient(#333, #333), /* Top Ascender */
+                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px), /* Midline */
+                linear-gradient(#333, #333), /* Baseline */
+                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px); /* Descender */
             background-position: 
-                0 15px, /* Position 1: Ascender */
-                0 35px, /* Position 2: Midline (20px gap) */
-                0 55px, /* Position 3: Baseline (20px gap) */
-                0 75px; /* Position 4: Descender (20px gap) */
+                0 10px, /* Ascender */
+                0 25px, /* Midline (15px gap) */
+                0 40px, /* Baseline (15px gap) */
+                0 55px; /* Descender (15px gap) */
             background-size: 
                 100% 1px, 
                 100% 1px, 
-                100% 1.5px, /* Slightly thicker baseline for visual grounding */
+                100% 1.5px, 
                 100% 1px;
             background-repeat: no-repeat;
         }
