@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Practice Worksheet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* 1. CUSTOM FONT LOADING FROM GITHUB */
+        @font-face {
+            font-family: 'SchoolDaysFont';
+            /* UPDATE THIS TO MATCH YOUR EXACT FONT FILE NAME */
+            src: url('/YOUR-FONT-FILE-NAME.ttf') format('truetype'); 
+        }
+
         /* General Reset and Print Setup */
         * { 
             box-sizing: border-box; 
@@ -15,7 +21,8 @@
             print-color-adjust: exact !important;
         }
         body {
-            font-family: 'Quicksand', 'Comic Sans MS', sans-serif;
+            /* Fallback to Arial if the font filename is incorrect */
+            font-family: 'SchoolDaysFont', Arial, sans-serif;
             background-color: #e9ecef;
             color: #000;
         }
@@ -36,20 +43,17 @@
                 width: 100%; height: 100%;
                 page-break-after: always;
             }
-            .page:last-of-type {
-                page-break-after: auto; 
-            }
+            .page:last-of-type { page-break-after: auto; }
             .no-print { display: none !important; }
         }
 
         /* GUI Control Panel */
         .controls {
-            background: #fff;
-            padding: 20px; margin: 20px auto;
+            background: #fff; padding: 20px; margin: 20px auto;
             width: 8.5in; border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             display: flex; justify-content: space-between; align-items: center;
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; /* Keep UI legible */
         }
         .controls label { font-weight: bold; margin-right: 15px; }
         .controls input[type="number"] { width: 60px; padding: 5px; margin-left: 5px; }
@@ -60,50 +64,23 @@
         .controls button.print-btn { background: #28a745; }
 
         /* Header Section */
-        .header { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.2rem; }
+        .header { display: flex; justify-content: space-between; margin-bottom: 25px; font-size: 1.2rem; font-family: Arial, sans-serif; }
         .header-line { border-bottom: 1px solid #000; width: 250px; display: inline-block; }
 
-        /* Handwriting Guidelines CSS - Scaled with Vertical Bounds */
-        .writing-section { margin-bottom: 20px; }
+        /* Handwriting CSS - Let the font do the work */
+        .writing-section { margin-bottom: 25px; }
         .writing-line {
-            position: relative; 
-            height: 65px; /* Scaled down to prevent text wrapping */
-            font-size: 42px; /* Font reduced proportionally */
-            font-weight: 600; /* Added slight weight for pencil-like legibility */
-            white-space: nowrap; /* Forces text to never break lines */
-            overflow: hidden; /* Secures boundaries */
-            line-height: 1; 
-            padding-top: 4px; /* Aligns the Quicksand font directly on the baseline */
-            padding-left: 15px;
-            padding-right: 15px;
-            
-            /* Vertical bounds (The box effect) */
-            border-left: 2px solid #333;
-            border-right: 2px solid #333;
-            
-            /* Drawing the 4 exact lines */
-            background-image: 
-                linear-gradient(#333, #333), /* Top Ascender */
-                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px), /* Midline */
-                linear-gradient(#333, #333), /* Baseline */
-                repeating-linear-gradient(to right, #999 0, #999 8px, transparent 8px, transparent 16px); /* Descender */
-            background-position: 
-                0 10px, /* Ascender */
-                0 25px, /* Midline (15px gap) */
-                0 40px, /* Baseline (15px gap) */
-                0 55px; /* Descender (15px gap) */
-            background-size: 
-                100% 1px, 
-                100% 1px, 
-                100% 1.5px, 
-                100% 1px;
-            background-repeat: no-repeat;
+            font-size: 60px; /* Adjust this to scale the font on the page */
+            line-height: 1.2; 
+            white-space: pre; /* Forces spaces to render as blank handwriting lines */
+            overflow: hidden;
         }
 
         /* Math Grid Layout */
         .math-container {
             display: grid; grid-template-columns: 1fr 1fr;
             row-gap: 40px; column-gap: 60px; margin-top: 30px; font-size: 1.8rem;
+            font-family: Arial, sans-serif; /* Use standard font for clear math */
         }
         .math-problem { display: flex; align-items: center; }
         .math-problem span { display: inline-block; min-width: 40px; text-align: right; }
@@ -131,20 +108,24 @@
             <div>Date: <span class="header-line" style="width: 150px;"></span></div>
         </div>
         <div id="handwriting-container">
-            <div class="writing-section"><div class="writing-line" id="sentence-1"></div><div class="writing-line"></div></div>
-            <div class="writing-section"><div class="writing-line" id="sentence-2"></div><div class="writing-line"></div></div>
-            <div class="writing-section"><div class="writing-line" id="sentence-3"></div><div class="writing-line"></div></div>
-            <div class="writing-section"><div class="writing-line" id="sentence-4"></div><div class="writing-line"></div></div>
-            <div class="writing-section"><div class="writing-line" id="sentence-5"></div><div class="writing-line"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-1"></div><div class="writing-line" id="blank-1"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-2"></div><div class="writing-line" id="blank-2"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-3"></div><div class="writing-line" id="blank-3"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-4"></div><div class="writing-line" id="blank-4"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-5"></div><div class="writing-line" id="blank-5"></div></div>
         </div>
     </div>
 
     <div class="page" id="page2">
-        <h2 style="text-align: center; margin-bottom: 20px;">Math Practice</h2>
+        <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Math Practice</h2>
         <div class="math-container" id="math-grid"></div>
     </div>
 
     <script>
+        // The characters used to draw the empty line for writing.
+        // If your purchased font requires an underscore _ to draw a blank line, change this string.
+        const BLANK_LINE_CHARACTER = "                                                            "; 
+
         function generateSentences() {
             const sentencePool = [
                 "The quick brown fox jumps.", "Lazy dogs nap by the river.", "A big jet flies up high.",
@@ -179,6 +160,8 @@
 
             for (let i = 0; i < 5; i++) {
                 document.getElementById(`sentence-${i + 1}`).innerText = selectedSentences[i];
+                // Injects the blank characters so the font draws the empty guidelines below the sentence
+                document.getElementById(`blank-${i + 1}`).innerText = BLANK_LINE_CHARACTER;
             }
         }
 
@@ -197,6 +180,7 @@
                 const num2 = Math.floor(Math.random() * num1) + 1;
 
                 if (!allowBorrowing) {
+                    // Strict check to ensure the ones digit of num1 is >= ones digit of num2
                     if ((num1 % 10) < (num2 % 10)) {
                         failSafeCounter++;
                         continue; 
