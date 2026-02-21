@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Practice Worksheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset and Print Setup */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            background-color: #e9ecef;
+            color: #000;
+        }
+        @page { size: letter; margin: 0.5in; }
+        
+        /* Container and Page Break Logic */
+        .page {
+            width: 8.5in; height: 11in;
+            background: white;
+            margin: 20px auto; padding: 0.5in;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        @media print {
+            body { background: white; }
+            .page {
+                margin: 0; padding: 0; box-shadow: none;
+                width: 100%; height: 100%;
+                page-break-after: always;
+            }
+            .no-print { display: none !important; }
+        }
+
+        /* GUI Control Panel */
+        .controls {
+            background: #fff;
+            padding: 20px; margin: 20px auto;
+            width: 8.5in; border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .controls label { font-weight: bold; margin-right: 15px; }
+        .controls input[type="number"] { width: 60px; padding: 5px; margin-left: 5px; }
+        .controls button {
+            padding: 10px 20px; font-size: 1rem; cursor: pointer;
+            background: #007bff; color: white; border: none; border-radius: 4px;
+        }
+        .controls button.print-btn { background: #28a745; }
+
+        /* Header Section */
+        .header { display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 1.2rem; }
+        .header-line { border-bottom: 1px solid #000; width: 250px; display: inline-block; }
+
+        /* Handwriting Guidelines CSS */
+        .writing-section { margin-bottom: 40px; }
+        .writing-line {
+            position: relative; height: 60px; margin-bottom: 20px;
+            font-size: 2.2rem; line-height: 60px; padding-left: 10px;
+            background-image: 
+                linear-gradient(to right, transparent 0%, transparent 100%),
+                repeating-linear-gradient(to right, #999 0, #999 10px, transparent 10px, transparent 20px),
+                linear-gradient(to right, #000 0%, #000 100%);
+            background-position: 0 0, 0 30px, 0 60px;
+            background-size: 100% 2px, 100% 2px, 100% 2px;
+            background-repeat: no-repeat;
+        }
+
+        /* Math Grid Layout */
+        .math-container {
+            display: grid; grid-template-columns: 1fr 1fr;
+            row-gap: 40px; column-gap: 60px; margin-top: 30px; font-size: 1.8rem;
+        }
+        .math-problem { display: flex; align-items: center; }
+        .math-problem span { display: inline-block; min-width: 40px; text-align: right; }
+        .math-problem .operator, .math-problem .equals { margin: 0 10px; }
+        .math-problem .answer-line { border-bottom: 2px solid #000; width: 80px; display: inline-block; height: 30px; }
+    </style>
+</head>
+<body>
+
+    <div class="controls no-print">
+        <div>
+            <label>Questions: <input type="number" id="input-questions" value="20" min="1" max="40"></label>
+            <label>Max Number: <input type="number" id="input-max" value="20" min="5" max="100"></label>
+            <label>Allow Borrowing: <input type="checkbox" id="input-borrowing"></label>
+        </div>
+        <div>
+            <button onclick="generateNewWorksheet()">Regenerate Data</button>
+            <button class="print-btn" onclick="window.print()">Print Worksheet</button>
+        </div>
+    </div>
+
+    <div class="page" id="page1">
+        <div class="header">
+            <div>Name: <span class="header-line"></span></div>
+            <div>Date: <span class="header-line" style="width: 150px;"></span></div>
+        </div>
+        <div id="handwriting-container">
+            <div class="writing-section"><div class="writing-line" id="sentence-1"></div><div class="writing-line"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-2"></div><div class="writing-line"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-3"></div><div class="writing-line"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-4"></div><div class="writing-line"></div></div>
+            <div class="writing-section"><div class="writing-line" id="sentence-5"></div><div class="writing-line"></div></div>
+        </div>
+    </div>
+
+    <div class="page" id="page2">
+        <h2 style="text-align: center; margin-bottom: 20px;">Math Practice</h2>
+        <div class="math-container" id="math-grid"></div>
+    </div>
+
+    <script>
+        // --- SENTENCE GENERATOR ---
+        function generateSentences() {
+            const sentencePool = [
+                "The quick brown fox jumps.", "Lazy dogs nap by the river.", "A big jet flies up high.",
+                "Six red apples fall fast.", "We mix yellow paint for fun.", "The zebra runs in the zoo.",
+                "Quiet ducks quack at the pond.", "Mom packed a box of jam.", "The fuzzy bee buzzes by.",
+                "Jack flies a bright kite.", "Vans drive on the long road.", "The crazy cat jumps over the log.",
+                "A quick wolf runs in the woods.", "Max fixes the broken toy.", "Five pigs play in the mud.",
+                "The queen wears a shiny crown.", "A brave mouse hides in the dark.", "We saw a giant shark in the sea.",
+                "The lazy bear sleeps in a cave.", "A green frog jumps on the pad.", "The wind blows the leaves away.",
+                "She plays the xylophone well.", "He zipped up his warm jacket.", "The quiet owl sleeps all day.",
+                "A crazy monkey grabs the vine.", "My pet dog wags his long tail.", "Six brave jets zoom in the sky.",
+                "The quick taxi drives very fast.", "We love to jump in the cold water.", "Kevin plays with a yellow yoyo."
+            ];
+
+            let selectedSentences = [];
+            let isPangram = false;
+            let attempts = 0;
+
+            while (!isPangram && attempts < 2000) {
+                attempts++;
+                let indices = new Set();
+                while (indices.size < 5) indices.add(Math.floor(Math.random() * sentencePool.length));
+                selectedSentences = Array.from(indices).map(i => sentencePool[i]);
+                
+                const combinedString = selectedSentences.join("").toLowerCase();
+                const uniqueLetters = new Set();
+                for (let i = 0; i < combinedString.length; i++) {
+                    if (combinedString[i] >= 'a' && combinedString[i] <= 'z') uniqueLetters.add(combinedString[i]);
+                }
+                if (uniqueLetters.size === 26) isPangram = true;
+            }
+
+            for (let i = 0; i < 5; i++) {
+                document.getElementById(`sentence-${i + 1}`).innerText = selectedSentences[i];
+            }
+        }
+
+        // --- MATH GENERATOR ---
+        function generateMathProblems(numberOfQuestions, maxNumber, allowBorrowing) {
+            const mathGrid = document.getElementById('math-grid');
+            mathGrid.innerHTML = ''; 
+
+            const uniqueQuestions = new Set();
+            const problemsToRender = [];
+            let failSafeCounter = 0;
+
+            while (uniqueQuestions.size < numberOfQuestions) {
+                if (failSafeCounter > 50) break;
+
+                const num1 = Math.floor(Math.random() * (maxNumber - 1)) + 2;
+                const num2 = Math.floor(Math.random() * num1) + 1;
+
+                if (!allowBorrowing) {
+                    if ((num1 % 10) < (num2 % 10)) {
+                        failSafeCounter++;
+                        continue; 
+                    }
+                }
+
+                const equationString = `${num1}-${num2}`;
+                if (uniqueQuestions.has(equationString)) {
+                    failSafeCounter++;
+                    continue;
+                }
+
+                uniqueQuestions.add(equationString);
+                problemsToRender.push({ num1, num2 });
+                failSafeCounter = 0; 
+            }
+
+            problemsToRender.forEach(problem => {
+                const problemDiv = document.createElement('div');
+                problemDiv.className = 'math-problem';
+                problemDiv.innerHTML = `
+                    <span>${problem.num1}</span> <span class="operator">-</span> <span>${problem.num2}</span> 
+                    <span class="equals">=</span> <span class="answer-line"></span>
+                `;
+                mathGrid.appendChild(problemDiv);
+            });
+        }
+
+        // --- GUI CONTROLLER ---
+        function generateNewWorksheet() {
+            // Read values from the GUI inputs
+            const questions = parseInt(document.getElementById('input-questions').value, 10);
+            const max = parseInt(document.getElementById('input-max').value, 10);
+            const borrowing = document.getElementById('input-borrowing').checked;
+
+            // Execute the engines
+            generateMathProblems(questions, max, borrowing);
+            generateSentences();
+        }
+
+        // Run once on initial page load
+        window.onload = generateNewWorksheet;
+    </script>
+</body>
+</html>
