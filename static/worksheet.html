@@ -78,6 +78,40 @@
             margin-bottom: 10px; /* Reduced bottom margin */
         }
 
+        /* Number Line CSS */
+        .number-line {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 10px auto 40px auto;
+            width: 95%;
+            font-family: Arial, sans-serif;
+        }
+        .number-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-top: 2px solid #000;
+            z-index: 1;
+        }
+        .number-line-tick {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+        .tick-mark {
+            height: 15px;
+            width: 2px;
+            background-color: #000;
+            margin-bottom: 5px;
+        }
+        .tick-number {
+            font-size: 1.2rem;
+        }
+
         /* Math Grid Layout */
         .math-container {
             display: grid; grid-template-columns: 1fr 1fr;
@@ -133,6 +167,7 @@
 
     <div class="page" id="page2">
         <h2 style="text-align: center; margin-bottom: 20px; font-family: Arial, sans-serif;">Math Practice</h2>
+        <div class="number-line" id="number-line"></div>
         <div class="math-container" id="math-grid"></div>
     </div>
 
@@ -178,6 +213,23 @@
 
             for (let i = 1; i <= 3; i++) {
                 document.getElementById(`free-${i}`).innerText = BLANK_LINE_CHARACTER;
+            }
+        }
+
+        function generateNumberLine(max) {
+            const container = document.getElementById('number-line');
+            container.innerHTML = '';
+            
+            // Hard limit the visual number line to 20 for formatting, 
+            // while keeping a minimum of 10 for structural balance.
+            let limit = max > 20 ? 20 : max;
+            limit = Math.max(10, limit);
+            
+            for (let i = 0; i <= limit; i++) {
+                const tickDiv = document.createElement('div');
+                tickDiv.className = 'number-line-tick';
+                tickDiv.innerHTML = `<div class="tick-mark"></div><div class="tick-number">${i}</div>`;
+                container.appendChild(tickDiv);
             }
         }
 
@@ -263,6 +315,9 @@
             const max = parseInt(document.getElementById('input-max').value, 10);
             const borrowing = document.getElementById('input-borrowing').checked;
 
+            // Generate the number line dynamically based on the max number
+            generateNumberLine(max);
+            
             generateMathProblems(questions, max, borrowing, type);
             generateSentences();
         }
