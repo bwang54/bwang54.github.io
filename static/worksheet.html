@@ -127,8 +127,14 @@
 <body>
 
     <div class="controls no-print">
-        <div>
-            <label>Type: 
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+            <label>Writing: 
+                <select id="input-hw-type">
+                    <option value="sentences">Copy Sentences</option>
+                    <option value="blank">Free Writing (Blank)</option>
+                </select>
+            </label>
+            <label>Math: 
                 <select id="input-type">
                     <option value="subtraction">Subtraction</option>
                     <option value="addition">Addition</option>
@@ -136,12 +142,12 @@
                 </select>
             </label>
             <label>Questions: <input type="number" id="input-questions" value="20" min="1" max="40"></label>
-            <label>Max Number: <input type="number" id="input-max" value="20" min="5" max="100"></label>
+            <label>Max Num: <input type="number" id="input-max" value="20" min="5" max="100"></label>
             <label>Allow Borrow/Carry: <input type="checkbox" id="input-borrowing"></label>
         </div>
         <div>
-            <button onclick="generateNewWorksheet()">Regenerate Data</button>
-            <button class="print-btn" onclick="window.print()">Print Worksheet</button>
+            <button onclick="generateNewWorksheet()">Regenerate</button>
+            <button class="print-btn" onclick="window.print()">Print</button>
         </div>
     </div>
 
@@ -175,6 +181,20 @@
         const BLANK_LINE_CHARACTER = "                                                            "; 
 
         function generateSentences() {
+            const hwType = document.getElementById('input-hw-type').value;
+
+            // If the user selects "Free Writing (Blank)", fill all rows with empty guidelines
+            if (hwType === 'blank') {
+                for (let i = 1; i <= 5; i++) {
+                    document.getElementById(`sentence-${i}`).innerText = BLANK_LINE_CHARACTER;
+                    document.getElementById(`blank-${i}`).innerText = BLANK_LINE_CHARACTER;
+                }
+                for (let i = 1; i <= 3; i++) {
+                    document.getElementById(`free-${i}`).innerText = BLANK_LINE_CHARACTER;
+                }
+                return; // Exit the function early
+            }
+
             const sentencePool = [
                 "The quick brown fox jumps.", "Lazy dogs nap by the river.", "A big jet flies up high.",
                 "Six red apples fall fast.", "We mix yellow paint for fun.", "The zebra runs in the zoo.",
