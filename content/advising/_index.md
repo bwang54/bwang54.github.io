@@ -21,6 +21,12 @@ description: "Common Questions about Advising"
 - FIN3320 Prep & Anlysis Financial Stmts
 - FIN3350 International Business
 
+## Prerequisite Relation for Specific Courses
+
+- FIN3310 &rarr;  FIN3311 Corporate Finance 2 &rarr; FIN4300 Investments
+- FIN3310 &rarr;  FIN3311 Corporate Finance 2 &rarr; FIN4350 Asset valuation
+- FIN3310 &rarr;  FIN3390 Data Analytics in Finance &rarr; FIN4400 Machine Learning in Finance 
+
 ## How to Declare My Finance Major?
 
 First, you need to meet the [criteria](https://kean.smartcatalogiq.com/en/2025-2026/undergraduate-catalog/colleges-programs-by-college/college-of-business-and-public-management/department-of-accounting-and-finance/finance/finance-b-s/). Then, fill out this [form](https://www.kean.edu/media/change-major-minor-form-2024). 
