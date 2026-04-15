@@ -2,6 +2,7 @@
 title: "Course Portfolio"
 description: "Comprehensive instruction across foundational and advanced finance principles."
 date: 2021-09-01
+summary: "A comprehensive overview of my standard undergraduate course offerings, ranging from foundational corporate finance to advanced asset valuation and investment strategies."
 # weight: 1
 ---
 

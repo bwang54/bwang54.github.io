@@ -2,6 +2,7 @@
 title: "Bloomberg Crash Course"
 description: "An intensive introduction to real-world financial data and Bloomberg Terminal functionality."
 date: 2026-04-15
+summary: "An intensive module introducing students to real-world financial data. This course covers terminal navigation, fundamental equity analysis, and prepares students for Bloomberg industry certifications."
 # weight: 4
 ---
 

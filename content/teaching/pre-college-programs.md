@@ -2,6 +2,7 @@
 title: "Pre-College Program Leadership"
 description: "Educational outreach and instruction outside of the standard university program."
 date: 2025-07-01
+summary: "An overview of my educational outreach initiatives, including the design and instruction of the Kean University Bloomberg Education Summer Pre-College Program."
 # weight: 3
 ---
 

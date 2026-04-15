@@ -2,6 +2,7 @@
 title: "Innovative Curriculum Development"
 description: "Designing cutting-edge courses to equip students with modern data analytics skills."
 date: 2025-09-01
+summary: "Details on the launch of FIN-3390: Data Analytics in Finance, an innovative new course equipping students with cutting-edge Python skills for modern financial modeling."
 # weight: 2
 ---
 

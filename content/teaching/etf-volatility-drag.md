@@ -2,6 +2,7 @@
 title: "The Mechanics of Volatility Drag in Leveraged ETFs"
 date: 2026-04-15
 draft: false
+summary: "An interactive, data-driven simulator demonstrating the mathematical mechanics of volatility drag (beta slippage) in leveraged and inverse Exchange Traded Funds."
 ---
 
 Leveraged and inverse Exchange Traded Products (ETPs) are designed to achieve their stated multiplier (e.g., 2x, 3x, -1x) on a daily resetting basis. While effective for short-term directional trades, holding these products over extended periods introduces significant mathematical tracking error known as beta slippage, or volatility drag.
