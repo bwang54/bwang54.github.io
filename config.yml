@@ -57,7 +57,7 @@ params:
           enabled: true
           title: Bo Wang's Website
           subtitle: "I am an Assistant Professor in Department of Accounting and Finance at Kean University. My research focuses on empirical corporate finance."
-          imageUrl: "Bo Wang Headshot.jpg"
+          imageUrl: "/images/Bo Wang Headshot.jpg"
           imageWidth: 160
           imageHeight: 238
           buttons:
