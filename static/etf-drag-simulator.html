@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leverage Drag Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; color: #333; }
+        .controls { display: flex; flex-wrap: wrap; gap: 20px; background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .control-group { display: flex; flex-direction: column; flex: 1; min-width: 200px; }
+        label { font-weight: bold; margin-bottom: 5px; font-size: 14px; }
+        input[type=range] { width: 100%; }
+        .scenarios { display: flex; gap: 10px; margin-bottom: 20px; }
+        button { padding: 8px 16px; background: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        button:hover { background: #004494; }
+        .summary { padding: 15px; background: #e9ecef; border-radius: 8px; font-size: 15px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <div class="scenarios">
+        <button onclick="setScenario(250, 0.0, 4.0)">1. Sideways Market (Vol-Tax)</button>
+        <button onclick="setScenario(80, 0.6, 0.5)">2. The Bull Run (Tailwind)</button>
+        <button onclick="setScenario(150, 0.1, 4.5)">3. Path Dependency Trap</button>
+    </div>
+
+    <div class="controls">
+        <div class="control-group">
+            <label for="duration">Duration (Days): <span id="dur-val">60</span></label>
+            <input type="range" id="duration" min="20" max="250" value="60" oninput="updateChart()">
+        </div>
+        <div class="control-group">
+            <label for="drift">Daily Drift (%): <span id="drift-val">0.1</span></label>
+            <input type="range" id="drift" min="-1.0" max="1.0" step="0.1" value="0.1" oninput="updateChart()">
+        </div>
+        <div class="control-group">
+            <label for="volatility">Daily Volatility (%): <span id="vol-val">2.0</span></label>
+            <input type="range" id="volatility" min="0.0" max="6.0" step="0.1" value="2.0" oninput="updateChart()">
+        </div>
+    </div>
+
+    <canvas id="simChart" width="800" height="400"></canvas>
+    
+    <div class="summary" id="summaryText"></div>
+
+    <script>
+        let chartInstance = null;
+
+        // Box-Muller transform for normally distributed returns
+        function randomNormal() {
+            let u = 0, v = 0;
+            while(u === 0) u = Math.random();
+            while(v === 0) v = Math.random();
+            return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+        }
+
+        function setScenario(dur, drf, vol) {
+            document.getElementById('duration').value = dur;
+            document.getElementById('drift').value = drf;
+            document.getElementById('volatility').value = vol;
+            updateChart();
+        }
+
+        function updateChart() {
+            const duration = parseInt(document.getElementById('duration').value);
+            const drift = parseFloat(document.getElementById('drift').value) / 100;
+            const volatility = parseFloat(document.getElementById('volatility').value) / 100;
+
+            document.getElementById('dur-val').innerText = duration;
+            document.getElementById('drift-val').innerText = (drift * 100).toFixed(1);
+            document.getElementById('vol-val').innerText = (volatility * 100).toFixed(1);
+
+            let labels = [];
+            let indexData = [100];
+            let comp3xData = [100];
+            let compNeg3xData = [100];
+            let theo3xData = [100];
+
+            let indexVal = 100;
+            let comp3xVal = 100;
+            let compNeg3xVal = 100;
+
+            for (let i = 1; i <= duration; i++) {
+                labels.push('Day ' + i);
+                
+                // Generate daily return
+                let dailyReturn = drift + (randomNormal() * volatility);
+                
+                // Compounding math
+                indexVal = indexVal * (1 + dailyReturn);
+                comp3xVal = comp3xVal * (1 + (dailyReturn * 3));
+                compNeg3xVal = compNeg3xVal * (1 + (dailyReturn * -3));
+                
+                // Theoretical math (Total return * 3)
+                let totalIndexReturn = (indexVal - 100) / 100;
+                let theo3xVal = 100 * (1 + (totalIndexReturn * 3));
+
+                indexData.push(indexVal);
+                comp3xData.push(comp3xVal);
+                compNeg3xData.push(compNeg3xVal);
+                theo3xData.push(theo3xVal);
+            }
+
+            const ctx = document.getElementById('simChart').getContext('2d');
+            
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            chartInstance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Start'].concat(labels),
+                    datasets: [
+                        { label: 'Underlying Index', data: indexData, borderColor: '#333', borderWidth: 3, pointRadius: 0 },
+                        { label: 'Theoretical 3x (No Drag)', data: theo3xData, borderColor: '#aaa', borderDash: [5, 5], borderWidth: 2, pointRadius: 0 },
+                        { label: 'Compounded 3x Bull', data: comp3xData, borderColor: '#28a745', borderWidth: 2, pointRadius: 0 },
+                        { label: 'Compounded -3x Bear', data: compNeg3xData, borderColor: '#dc3545', borderWidth: 2, pointRadius: 0 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { tooltip: { enabled: true } },
+                    scales: { y: { title: { display: true, text: 'Portfolio Value ($100 Base)' } } }
+                }
+            });
+
+            // Update Summary
+            const finalIndex = ((indexData[duration] - 100)).toFixed(2);
+            const finalTheo3x = ((theo3xData[duration] - 100)).toFixed(2);
+            const finalComp3x = ((comp3xData[duration] - 100)).toFixed(2);
+            const dragAmt = (finalTheo3x - finalComp3x).toFixed(2);
+
+            document.getElementById('summaryText').innerHTML = 
+                `<strong>Market Environment:</strong> Over ${duration} days, the underlying index returned ${finalIndex}%.<br>
+                <strong>Leverage Impact:</strong> A theoretical 3x return should be ${finalTheo3x}%. However, due to daily resetting volatility drag, the compounded 3x fund returned ${finalComp3x}%. This represents a mathematical divergence of ${dragAmt}%.`;
+        }
+
+        // Initialize
+        updateChart();
+    </script>
+</body>
+</html>
