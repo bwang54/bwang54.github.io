@@ -16,8 +16,8 @@ menu:
         - name: Papers
           url: papers/
           weight: 2
-        - name: Courses
-          url: courses/
+        - name: Teaching
+          url: teaching/
           weight: 3
         - name: Advising
           url: advising/
@@ -45,7 +45,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["aboutme","papers","courses","advising","resources", "exam"]
+    MainSections: ["aboutme","papers","teaching","advising","resources", "exam"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
