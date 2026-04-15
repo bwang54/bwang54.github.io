@@ -1,8 +1,8 @@
 ---
 title: "Pre-College Program Leadership"
 description: "Educational outreach and instruction outside of the standard university program."
-date: 2026-04-15
-weight: 3
+date: 2025-07-01
+# weight: 3
 ---
 
 Beyond the standard undergraduate curriculum, I am actively involved in educational outreach designed to introduce younger students to the mechanics of the financial system.

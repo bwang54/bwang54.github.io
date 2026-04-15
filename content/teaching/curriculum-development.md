@@ -1,8 +1,8 @@
 ---
 title: "Innovative Curriculum Development"
 description: "Designing cutting-edge courses to equip students with modern data analytics skills."
-date: 2026-04-15
-weight: 2
+date: 2025-09-01
+# weight: 2
 ---
 
 As the financial industry increasingly relies on big data and algorithmic analysis, it is critical to bridge the gap between traditional financial theory and modern programming capabilities.

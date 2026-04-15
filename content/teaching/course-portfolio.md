@@ -1,8 +1,8 @@
 ---
 title: "Course Portfolio"
 description: "Comprehensive instruction across foundational and advanced finance principles."
-date: 2026-04-15
-weight: 1
+date: 2021-09-01
+# weight: 1
 ---
 
 My standard teaching portfolio covers a wide spectrum of the finance discipline, ensuring students build a strong quantitative foundation before moving on to specialized market applications. 
