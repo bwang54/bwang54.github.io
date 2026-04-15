@@ -8,9 +8,10 @@
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; color: #333; }
         .controls { display: flex; flex-wrap: wrap; gap: 20px; background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .control-group { display: flex; flex-direction: column; flex: 1; min-width: 200px; }
+        .control-group { display: flex; flex-direction: column; flex: 1; min-width: 150px; }
         label { font-weight: bold; margin-bottom: 5px; font-size: 14px; }
         input[type=range] { width: 100%; }
+        input[type=number] { width: 100%; padding: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
         .scenarios { display: flex; gap: 10px; margin-bottom: 20px; }
         button { padding: 8px 16px; background: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
         button:hover { background: #004494; }
@@ -35,8 +36,12 @@
             <input type="range" id="drift" min="-1.0" max="1.0" step="0.1" value="0.1" oninput="updateChart()">
         </div>
         <div class="control-group">
-            <label for="volatility">Daily Volatility (%): <span id="vol-val">2.0</span></label>
+            <label for="volatility">Daily Vol (%): <span id="vol-val">2.0</span></label>
             <input type="range" id="volatility" min="0.0" max="6.0" step="0.1" value="2.0" oninput="updateChart()">
+        </div>
+        <div class="control-group">
+            <label for="seed">Random Seed:</label>
+            <input type="number" id="seed" value="42" oninput="updateChart()">
         </div>
     </div>
 
@@ -46,12 +51,23 @@
 
     <script>
         let chartInstance = null;
+        let seededRandom;
 
-        // Box-Muller transform for normally distributed returns
+        // A deterministic Pseudo-Random Number Generator (Mulberry32)
+        function createPRNG(seed) {
+            return function() {
+                let t = seed += 0x6D2B79F5;
+                t = Math.imul(t ^ t >>> 15, t | 1);
+                t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            }
+        }
+
+        // Box-Muller transform using the seeded PRNG
         function randomNormal() {
             let u = 0, v = 0;
-            while(u === 0) u = Math.random();
-            while(v === 0) v = Math.random();
+            while(u === 0) u = seededRandom();
+            while(v === 0) v = seededRandom();
             return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
         }
 
@@ -63,6 +79,10 @@
         }
 
         function updateChart() {
+            // Fetch the seed from the input field, default to 42 if empty or invalid
+            const seedValue = parseInt(document.getElementById('seed').value) || 42;
+            seededRandom = createPRNG(seedValue); 
+
             const duration = parseInt(document.getElementById('duration').value);
             const drift = parseFloat(document.getElementById('drift').value) / 100;
             const volatility = parseFloat(document.getElementById('volatility').value) / 100;
@@ -84,7 +104,7 @@
             for (let i = 1; i <= duration; i++) {
                 labels.push('Day ' + i);
                 
-                // Generate daily return
+                // Generate daily return using the seeded normal distribution
                 let dailyReturn = drift + (randomNormal() * volatility);
                 
                 // Compounding math
