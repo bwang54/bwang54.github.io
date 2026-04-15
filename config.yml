@@ -65,8 +65,8 @@ params:
               url: aboutme/
             - name: Papers
               url: papers/
-            - name: Courses
-              url: courses/
+            - name: Teaching
+              url: teaching/
             - name: Advising
               url: advising/
             - name: Resources
