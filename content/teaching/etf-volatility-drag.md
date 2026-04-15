@@ -8,7 +8,7 @@ Leveraged and inverse Exchange Traded Products (ETPs) are designed to achieve th
 
 Use the interactive simulator below to observe how daily compounding affects returns across different market regimes.
 
-<iframe src="/etf-drag-simulator.html" width="100%" height="750px" style="border:none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></iframe>
+<iframe src="/tools/etf-drag-simulator.html" width="100%" height="750px" style="border:none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></iframe>
 
 ### Understanding the Three Scenarios
 
