@@ -12,13 +12,10 @@ description: "For Exam Purpose."
         justify-content: space-evenly;
         align-items: center;
         min-height: 80vh;
-        
-        /* Breakout trick to bypass narrow theme containers */
         width: 90vw;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-        
         text-align: center;
         padding: 2vh 0;
         box-sizing: border-box;
@@ -32,7 +29,7 @@ description: "For Exam Purpose."
         letter-spacing: -2px;
     }
 
-    /* 3. Time Container and Label: Groups the label and input box together */
+    /* 3. Time Container and Label */
     .time-container {
         display: flex;
         flex-direction: column;
@@ -47,38 +44,39 @@ description: "For Exam Purpose."
         opacity: 0.8;
     }
 
-    /* Editable Time Input */
+    /* Editable Time Input: Minimalist styling */
     .time-input {
         font-size: 6vh;
         font-weight: bold;
         font-family: inherit;
-        padding: 2vh 4vw;
-        border: 3px dashed currentColor;
-        opacity: 0.6;
-        border-radius: 12px;
+        padding: 1vh 2vw;
+        border: none;
+        border-bottom: 2px solid transparent; /* Hidden by default */
+        opacity: 0.8;
         text-align: center;
         background: transparent;
         outline: none;
-        transition: opacity 0.2s, border-style 0.2s;
+        transition: opacity 0.2s, border-bottom-color 0.2s;
         min-width: 50vw;
     }
     
+    /* Shows a subtle underline only when hovering or clicking to edit */
+    .time-input:hover,
     .time-input:focus {
         opacity: 1;
-        border-style: solid; 
+        border-bottom-color: currentColor; 
     }
 
-    /* 4. Instructions: Left-aligned, forced wide */
+    /* 4. Instructions: Minimalist, no background or borders */
     .instructions-box {
         font-size: 3.5vh;
         line-height: 1.6;
         text-align: left;
-        width: 100%; /* Now takes the full width of the 90vw exam-board */
-        max-width: 1200px; /* Prevents it from becoming unreadable on ultra-wide screens */
-        padding: 3vh 4vw;
-        border-radius: 12px;
-        background: rgba(128, 128, 128, 0.08);
-        border-left: 8px solid currentColor;
+        width: 100%;
+        max-width: 1200px;
+        padding: 2vh 4vw;
+        border: none; /* Removed thick left border */
+        background: transparent; /* Removed grey background */
         box-sizing: border-box;
     }
 
