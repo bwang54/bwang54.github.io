@@ -5,14 +5,20 @@ description: "For Exam Purpose."
 
 {{< rawhtml >}}
 <style>
-    /* 1. Container: Forces elements to space out evenly without scrolling */
+    /* 1. Container: Forces elements to space out evenly and breaks out of theme's max-width */
     .exam-board {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        min-height: 80vh; /* Takes up 80% of the screen height */
-        width: 100%;
+        min-height: 80vh;
+        
+        /* Breakout trick to bypass narrow theme containers */
+        width: 90vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        
         text-align: center;
         padding: 2vh 0;
         box-sizing: border-box;
@@ -20,7 +26,7 @@ description: "For Exam Purpose."
 
     /* 2. Live Clock: Uses monospace so numbers don't wiggle as seconds tick */
     #live-clock {
-        font-size: 12vh; /* Scales relative to screen height */
+        font-size: 12vh;
         font-weight: bold;
         font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
         letter-spacing: -2px;
@@ -41,7 +47,7 @@ description: "For Exam Purpose."
         opacity: 0.8;
     }
 
-    /* Editable Time Input: Clear border to show it can be clicked */
+    /* Editable Time Input */
     .time-input {
         font-size: 6vh;
         font-weight: bold;
@@ -57,24 +63,23 @@ description: "For Exam Purpose."
         min-width: 50vw;
     }
     
-    /* Changes to solid border when you click it to edit */
     .time-input:focus {
         opacity: 1;
         border-style: solid; 
     }
 
-    /* 4. Instructions: Left-aligned, widened, and adjusted for one-page fit */
+    /* 4. Instructions: Left-aligned, forced wide */
     .instructions-box {
-        font-size: 3.5vh; /* Massive on projector, perfect on laptop */
+        font-size: 3.5vh;
         line-height: 1.6;
         text-align: left;
-        width: 96vw; /* Expanded width to minimize line breaks */
-        max-width: 100%;
+        width: 100%; /* Now takes the full width of the 90vw exam-board */
+        max-width: 1200px; /* Prevents it from becoming unreadable on ultra-wide screens */
         padding: 3vh 4vw;
         border-radius: 12px;
-        background: rgba(128, 128, 128, 0.08); /* Subtle box, works in Light & Dark mode */
+        background: rgba(128, 128, 128, 0.08);
         border-left: 8px solid currentColor;
-        box-sizing: border-box; /* Ensures padding does not exceed the set width */
+        box-sizing: border-box;
     }
 
     .instructions-box ol {
@@ -110,7 +115,6 @@ description: "For Exam Purpose."
 </div>
 
 <script>
-    // Native script to generate an infinitely scalable live clock
     function updateExamClock() {
         const now = new Date();
         let hours = now.getHours();
@@ -119,7 +123,7 @@ description: "For Exam Purpose."
         const ampm = hours >= 12 ? 'PM' : 'AM';
         
         hours = hours % 12;
-        hours = hours ? hours : 12; // convert hour '0' to '12'
+        hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
         
@@ -127,7 +131,6 @@ description: "For Exam Purpose."
         document.getElementById('live-clock').textContent = timeString;
     }
     
-    // Initialize clock immediately, then update every second
     updateExamClock();
     setInterval(updateExamClock, 1000);
 </script>
