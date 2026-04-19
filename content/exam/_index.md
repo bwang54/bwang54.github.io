@@ -15,6 +15,7 @@ description: "For Exam Purpose."
         width: 100%;
         text-align: center;
         padding: 2vh 0;
+        box-sizing: border-box;
     }
 
     /* 2. Live Clock: Uses monospace so numbers don't wiggle as seconds tick */
@@ -25,7 +26,22 @@ description: "For Exam Purpose."
         letter-spacing: -2px;
     }
 
-    /* 3. Editable Time Input: Clear border to show it can be clicked */
+    /* 3. Time Container and Label: Groups the label and input box together */
+    .time-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1vh;
+    }
+
+    .time-label {
+        font-size: 3.5vh;
+        font-weight: bold;
+        font-family: inherit;
+        opacity: 0.8;
+    }
+
+    /* Editable Time Input: Clear border to show it can be clicked */
     .time-input {
         font-size: 6vh;
         font-weight: bold;
@@ -47,16 +63,18 @@ description: "For Exam Purpose."
         border-style: solid; 
     }
 
-    /* 4. Instructions: Left-aligned but centered on screen */
+    /* 4. Instructions: Left-aligned, widened, and adjusted for one-page fit */
     .instructions-box {
         font-size: 3.5vh; /* Massive on projector, perfect on laptop */
         line-height: 1.6;
         text-align: left;
-        max-width: 90vw;
+        width: 96vw; /* Expanded width to minimize line breaks */
+        max-width: 100%;
         padding: 3vh 4vw;
         border-radius: 12px;
         background: rgba(128, 128, 128, 0.08); /* Subtle box, works in Light & Dark mode */
         border-left: 8px solid currentColor;
+        box-sizing: border-box; /* Ensures padding does not exceed the set width */
     }
 
     .instructions-box ol {
@@ -73,8 +91,11 @@ description: "For Exam Purpose."
     
     <div id="live-clock">00:00:00</div>
 
-    <div contenteditable="true" class="time-input">
-        9:00 AM - 11:00 AM
+    <div class="time-container">
+        <div class="time-label">Exam Time:</div>
+        <div contenteditable="true" class="time-input">
+            9:00 AM - 11:00 AM
+        </div>
     </div>
 
     <div class="instructions-box">
