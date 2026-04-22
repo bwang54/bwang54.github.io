@@ -1,7 +1,13 @@
 ---
-title: "Avdising"
-description: "Common Questions about Advising"
+title: "Advising"
+description: "Common Questions about Advising."
 ---
+
+## Where is MGS2150?
+
+Starting from Fall 2026, MGS2150 will no longer be offered. Finance-major students are recommended to take ECON 3120 - App Stats in Bus/Fin Econ instead. 
+
+ECON 3120 - App Stats in Bus/Fin Econ will also count as one course toward an Econ minor. Students will then need to take only one more ECON course before graduating with an ECON minor.
 
 ## List of Finance Elective Courses
 
