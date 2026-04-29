@@ -64,7 +64,7 @@ params:
           imageWidth: 160
           imageHeight: 238
           buttons:
-            - name: AboutMe
+            - name: About Me
               url: aboutme/
             - name: Research
               url: papers/
