@@ -1,5 +1,5 @@
 ---
-title: "Papers"
+title: "Research"
 description: "Selected Papers by Bo Wang."
 ---
 

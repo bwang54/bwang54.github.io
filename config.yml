@@ -10,24 +10,27 @@ taxonomies:
 
 menu:
     main:
-        - name: AboutMe
+        - name: About Me
           url: aboutme/
           weight: 1 
-        - name: Papers
+        - name: Research
           url: papers/
           weight: 2
         - name: Teaching
           url: teaching/
           weight: 3
+        - name: Service
+          url: service/
+          weight: 4
         - name: Advising
           url: advising/
-          weight: 4 
+          weight: 5 
         - name: Resources
           url: resources/
-          weight: 5
+          weight: 6
         - name: Exam
           url: exam/
-          weight: 6
+          weight: 7
 
 params:
     description: "I am an Assistant Professor in Department of Accounting and Finance at Kean University. My research focuses on empirical corporate finance."
@@ -45,7 +48,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["aboutme","papers","teaching","advising","resources", "exam"]
+    MainSections: ["aboutme","papers","teaching","service","advising","resources", "exam"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -63,10 +66,12 @@ params:
           buttons:
             - name: AboutMe
               url: aboutme/
-            - name: Papers
+            - name: Research
               url: papers/
             - name: Teaching
               url: teaching/
+            - name: Service
+              url: service/
             - name: Advising
               url: advising/
             - name: Resources
