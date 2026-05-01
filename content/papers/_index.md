@@ -25,5 +25,6 @@ I work on empirical corporate finance, and my research interests include entrepr
 
 - Academy of Management 2026 Annual Meeting, Presentation, July 2026
 - 2026 MRS International Risk Conference, *Presentation*, July 2026
+- Fourth Kean University Faculty Research Conference, *Presentation*, May 2026
 - Academy of Management 2025 Annual Meeting, Presentation, July 2025
 - 2024 FMA Annual Meeting, Presentation, Oct 2024
