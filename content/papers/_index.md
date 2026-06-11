@@ -5,6 +5,8 @@ description: "Selected Papers by Bo Wang."
 
 I work on empirical corporate finance, and my research interests include entrepreneurship, labor and finance, innovation, corporate social responsibility, social capital, and FinTech. 
 
+[Published Papers](#selected-published-papers) · [Conference Presentations](#conference-presentations)
+
 ## Selected Published Papers:
 
 [7] **Wang, B.**, Wang, H., Wang, M. and Zhang, X.T. (2025), "Unionization and rank-and-file employee stock options: empirical evidence", *Managerial Finance*, Vol. 51 No. 12, pp. 1817-1830. [DOI](https://doi.org/10.1108/MF-09-2024-0678)
