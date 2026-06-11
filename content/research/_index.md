@@ -1,6 +1,9 @@
 ---
 title: "Research"
 description: "Selected Papers by Bo Wang."
+aliases:
+  - "/papers/"
+  - "/papers"
 ---
 
 I work on empirical corporate finance, and my research interests include entrepreneurship, labor and finance, innovation, corporate social responsibility, social capital, and FinTech. 

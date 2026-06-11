@@ -1,4 +1,4 @@
-baseURL: "http://bowang.finance" 
+baseURL: "https://bowang.finance/"
 title: Bo Wang
 theme: PaperMod
 
@@ -14,7 +14,7 @@ menu:
           url: aboutme/
           weight: 1 
         - name: Research
-          url: papers/
+          url: research/
           weight: 2
         - name: Teaching
           url: teaching/
@@ -48,7 +48,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["aboutme","papers","teaching","service","advising","resources", "exam"]
+    MainSections: ["aboutme","research","teaching","service","advising","resources", "exam"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -67,7 +67,7 @@ params:
             - name: About Me
               url: aboutme/
             - name: Research
-              url: papers/
+              url: research/
             - name: Teaching
               url: teaching/
             - name: Service
