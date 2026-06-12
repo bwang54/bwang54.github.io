@@ -12,6 +12,8 @@ I work on empirical corporate finance, and my research interests include entrepr
 
 ## Selected Published Papers:
 
+[8] Wang, J., **Wang, B.** and Zhou, W. (2026), "Female board secretaries and stock price informativeness: evidence from China", *Applied Economics*, advance online publication. [DOI](https://doi.org/10.1080/00036846.2026.2687734)
+
 [7] **Wang, B.**, Wang, H., Wang, M. and Zhang, X.T. (2025), "Unionization and rank-and-file employee stock options: empirical evidence", *Managerial Finance*, Vol. 51 No. 12, pp. 1817-1830. [DOI](https://doi.org/10.1108/MF-09-2024-0678)
 
 [6] Li, H., Shen, H., **Wang, B.** and Wang, H. (2025), "Bank affiliated directors and firm accounting policy: evidence from tax avoidance", *Managerial Finance*, Vol. 51 No. 4, pp. 549-566. [DOI](https://doi.org/10.1108/MF-09-2024-0706)
