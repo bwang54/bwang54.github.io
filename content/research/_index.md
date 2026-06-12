@@ -20,9 +20,9 @@ I work on empirical corporate finance, and my research interests include entrepr
 
 [5] Wang, J., Li, W., **Wang, B.** and Wang, Z. (2025), "Digitalize and stabilize: corporate digital transformation and performance volatility", *Applied Economics*, Vol. 57 No. 55, pp. 9345-9359. [DOI](https://doi.org/10.1080/00036846.2024.2416090)
 
-[4] Kobeissi, N., Hasan, I., **Wang, B.**, Wang, H. and Yin, D. (2022), "Social capital and regional innovation: evidence from private firms in the US", *Regional Studies*, Vol. 57 No. 1, pp. 57-71. [DOI](https://doi.org/10.1080/00343404.2022.2030053)
+[4] Kobeissi, N., Hasan, I., **Wang, B.**, Wang, H. and Yin, D. (2023), "Social capital and regional innovation: evidence from private firms in the US", *Regional Studies*, Vol. 57 No. 1, pp. 57-71. [DOI](https://doi.org/10.1080/00343404.2022.2030053) [ABDC: A*, SJR: Q1, ABS: 4]
 
-[3] Zhang, L., Zhao, R., **Wang, B.**, Wang, H. and Zhao, T. (2021), "Bankruptcy exemption and peer-to-peer lending", *Emerging Markets Finance and Trade*, Vol. 58 No. 3, pp. 863-882. [DOI](https://doi.org/10.1080/1540496X.2021.1926979)
+[3] Zhang, L., Zhao, R., **Wang, B.**, Wang, H. and Zhao, T. (2022), "Bankruptcy exemption and peer-to-peer lending", *Emerging Markets Finance and Trade*, Vol. 58 No. 3, pp. 863-882. [DOI](https://doi.org/10.1080/1540496X.2021.1926979)
 
 [2] **Wang, B.**, Wang, Z., Wen, J. and Zhang, X.T. (2021), "Executive gender and firm environmental management: evidence from CFO transitions", *Sustainability*, Vol. 13 No. 7, 3653. [DOI](https://doi.org/10.3390/su13073653)
 

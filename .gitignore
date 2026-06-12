@@ -1,2 +1,5 @@
 .DS_Store
 .hugo_build.lock
+
+# Private documents - keep local, never publish to the public repo or site
+*.docx
