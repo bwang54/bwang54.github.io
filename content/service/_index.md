@@ -25,9 +25,9 @@ Faculty Mentor, [Kean Research Days](https://www.kean.edu/research-days). Each y
 
 - Five poster presentations on a range of ETF topics.
 
-**2024** (18 students)
+**2024** (27 students)
 
-- Four poster presentations on the U.S. electric vehicle industry, inflation, and artificial intelligence in healthcare.
+- Six poster presentations on industry and macroeconomic topics, including the U.S. electric vehicle industry, inflation, and artificial intelligence in healthcare.
 
 **2022** (30 students)
 
