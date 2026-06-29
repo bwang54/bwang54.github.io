@@ -19,7 +19,7 @@ Faculty Mentor, [Kean Research Days](https://www.kean.edu/research-days). Each y
 **2026** (23 students)
 
 - Seven poster presentations on passive-ownership and mega-cap concentration risk, thematic and AI-managed ETFs, and the valuation of AI.
-- One oral presentation, "The Structural Shift in Firm Innovation via AI Orientation."
+- One oral presentation, ["The Structural Shift in Firm Innovation via AI Orientation"](https://www.youtube.com/watch?v=5grMaITTC9I).
 
 **2025** (20 students)
 
