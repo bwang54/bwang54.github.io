@@ -143,5 +143,11 @@
 
 {{ if or .Page.Params.math .Site.Params.math }}
 {{- partial "math.html" .}}
-{{ end }} 
+{{ end }}
+
+{{ if hugo.IsProduction }}
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b8d9e429cdb142efb6c48d197359269c"}'></script>
+<!-- End Cloudflare Web Analytics -->
+{{ end }}
 
