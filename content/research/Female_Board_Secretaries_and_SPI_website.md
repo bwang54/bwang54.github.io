@@ -4,7 +4,7 @@ date: 2026-06-08
 draft: false
 ---
 
-**Jianrong Wang, Bo Wang, and Wokun Zhou**
+Jianrong Wang, **Bo Wang**, and Wokun Zhou
 *Applied Economics* (forthcoming)
 
 DOI: https://doi.org/10.1080/00036846.2026.2687734

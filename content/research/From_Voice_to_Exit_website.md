@@ -4,7 +4,7 @@ date: 2026-07-23
 draft: false
 ---
 
-**Lishuai Lian, Jianrong Wang, and Bo Wang**
+Lishuai Lian, Jianrong Wang, and **Bo Wang**
 *Economic Analysis and Policy* (forthcoming)
 
 DOI: https://doi.org/10.1016/j.eap.2026.07.039
