@@ -12,7 +12,7 @@ I work on empirical corporate finance, and my research interests include entrepr
 
 ## Selected Published Papers:
 
-[9] Lian, L., Wang, J. and **Wang, B.** (2026), "From voice to exit: the unintended governance consequences of China's Stock Connect policy", *Economic Analysis and Policy*, advance online publication. [DOI](https://doi.org/10.1016/j.eap.2026.07.039)
+[9] Lian, L., Wang, J. and **Wang, B.** (2026), "From voice to exit: the unintended governance consequences of China's Stock Connect policy", *Economic Analysis and Policy*, Vol. 93, pp. 363-381. [DOI](https://doi.org/10.1016/j.eap.2026.07.039)
 
 [8] Wang, J., **Wang, B.** and Zhou, W. (2026), "Female board secretaries and stock price informativeness: evidence from China", *Applied Economics*, advance online publication. [DOI](https://doi.org/10.1080/00036846.2026.2687734)
 
