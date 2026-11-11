@@ -32,10 +32,8 @@ I work on empirical corporate finance. My current research focuses on informatio
 
 ## Conference Presentations
 
-Academy of Management 2026 Annual Meeting, Presentation, July 2026
-
-Fourth Kean University Faculty Research Conference, Presentation, May 2026
-
-Academy of Management 2025 Annual Meeting, Presentation, July 2025
-
-2024 FMA Annual Meeting, Presentation, October 2024
+- 39th Australian and New Zealand Academy of Management (ANZAM) Conference, Newcastle, Australia, December 2026, accepted ("Sue and Save" and "Digital Catering")
+- Academy of Management 2026 Annual Meeting, Presentation, July 2026
+- Fourth Kean University Faculty Research Conference, Presentation, May 2026
+- Academy of Management 2025 Annual Meeting, Presentation, July 2025
+- 2024 FMA Annual Meeting, Presentation, October 2024

@@ -3,6 +3,10 @@ title: "Advising"
 description: "Common Questions about Advising."
 ---
 
+## Where Are the Old Intermediate Economics Courses?
+
+The Econ Department has retired two courses. Students should use ECON*3010 Intermediate Microeconomics to fulfill the previous ECON*3021 Intermediate Microeconomics, and ECON*3030 Intermediate Macroeconomics to fulfill the previous ECON*3020 Intermediate Macroeconomics.
+
 ## Where is MGS2150?
 
 Starting from Fall 2026, MGS2150 will no longer be offered. Finance-major students are recommended to take ECON 3120 - App Stats in Bus/Fin Econ instead. 

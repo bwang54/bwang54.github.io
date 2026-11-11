@@ -10,7 +10,7 @@ I designed the Bloomberg Crash Course in Spring 2026 as a short, hands-on introd
 
 ### What the Course Covers
 
-Each session follows the same core outline. Students start with terminal navigation, including command syntax, the specialized keyboard, and efficient ways to retrieve data. They then work through fundamental equity analysis, pulling corporate financials, consensus earnings estimates, and valuation inputs. The last part of the session turns to global market dashboards, economic indicator tracking, and ETF screening. The material is mapped to the Bloomberg Market Concepts (BMC) and Bloomberg Finance Fundamentals (BFF) certificates, which students can complete on their own afterward.
+Students start with terminal navigation, including command syntax, the specialized keyboard, and efficient ways to retrieve data. They then work through fundamental equity analysis, pulling corporate financials, consensus earnings estimates, and valuation inputs. The last part of the session turns to global market dashboards, economic indicator tracking, and ETF screening. The material is mapped to the Bloomberg Market Concepts (BMC) and Bloomberg Finance Fundamentals (BFF) certificates, which students can complete on their own afterward.
 
 ### Sessions
 
