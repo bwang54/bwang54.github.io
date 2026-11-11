@@ -6,7 +6,7 @@ aliases:
   - "/papers"
 ---
 
-I work on empirical corporate finance, and my research interests include entrepreneurship, labor and finance, innovation, corporate social responsibility, social capital, and FinTech. 
+I work on empirical corporate finance. My current research focuses on information asymmetry, corporate governance, patent litigation, and capital markets, with work spanning both U.S. and Chinese institutional settings.
 
 [Published Papers](#selected-published-papers) · [Conference Presentations](#conference-presentations)
 
@@ -34,8 +34,8 @@ I work on empirical corporate finance, and my research interests include entrepr
 
 Academy of Management 2026 Annual Meeting, Presentation, July 2026
 
-Fourth Kean University Faculty Research Conference, *Presentation*, May 2026
+Fourth Kean University Faculty Research Conference, Presentation, May 2026
 
 Academy of Management 2025 Annual Meeting, Presentation, July 2025
 
-2024 FMA Annual Meeting, Presentation, Oct 2024
+2024 FMA Annual Meeting, Presentation, October 2024

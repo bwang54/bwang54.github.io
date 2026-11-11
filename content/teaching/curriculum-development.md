@@ -11,6 +11,6 @@ As the financial industry increasingly relies on big data and algorithmic analys
 ### FIN-3390: Data Analytics in Finance
 **Status:** Launched Fall 2025
 
-I am spearheading the creation and launch of this new course designed to equip students with cutting-edge **Python** skills applied directly to financial analysis. 
+I developed and launched this course, which is designed to equip students with cutting-edge **Python** skills applied directly to financial analysis. 
 
 The curriculum moves beyond standard spreadsheet modeling, introducing students to programmatic data retrieval, econometrics modeling, and data visualization. By integrating Python into the finance workflow, students are prepared for the rigorous quantitative demands of modern financial institutions.

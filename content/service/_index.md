@@ -7,6 +7,7 @@ description: "Service to the University"
 
 ## University Service
 
+- Committee Member, Department Curriculum Committee (Fall 2026 - Spring 2027) 
 - Committee Member, University Distance Learning Curriculum Committee (Fall 2024 - Spring 2026) 
 - Committee Member, College Curriculum Committee (Fall 2024 - Spring 2025) 
 - Committee Member, Department Curriculum Committee (Fall 2024 - Spring 2025) 

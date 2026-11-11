@@ -83,9 +83,9 @@ params:
         - name: Google Scholar
           url: https://scholar.google.com/citations?view_op=list_works&hl=en&user=fw_ndEQAAAAJ
         - name: ResearchGate
-          url: https://www.google.com/url?q=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FBo-Wang-140&sa=D&sntz=1&usg=AOvVaw1ZNGhv4HwaIgQkm27dl3h3
+          url: https://www.researchgate.net/profile/Bo-Wang-140
         - name: LinkedIn
-          url: https://www.google.com/url?q=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fbo-wang-1762aa31%2F&sa=D&sntz=1&usg=AOvVaw3cGSjrEvUXOdp7ahvkdpVS
+          url: https://www.linkedin.com/in/bo-wang-1762aa31/
         - name: University Website
           url: https://www.kean.edu/directory/bo-wang
 
