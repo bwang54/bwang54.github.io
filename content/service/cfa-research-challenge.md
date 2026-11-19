@@ -9,6 +9,6 @@ I serve as Faculty Advisor for Kean University's team in the [CFA Institute Rese
 
 ### 2026 - 2027 Season
 
-This season is Kean's first in the competition. Our team of four undergraduate students is analyzing Compass, Inc. and competes in the CFA Society New York local round. Winners of the local round advance to the sub-regional, regional, and global rounds.
+This season is Kean's first in the competition. Our team of four undergraduate students is analyzing Compass, Inc. and competes in the CFA Society New York local round, which this season includes 37 teams from 28 universities. Winners of the local round advance to the sub-regional, regional, and global rounds.
 
 <!-- Add results here as the season progresses, for example: "The team placed second in the CFA Society New York local round." -->
