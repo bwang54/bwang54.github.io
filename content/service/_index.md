@@ -3,7 +3,7 @@ title: "Service"
 description: "Service to the University"
 ---
 
-[University Service](#university-service) · [Student Research Mentoring](#student-research-mentoring)
+[University Service](#university-service) · [Student Competition Advising](#student-competition-advising) · [Student Research Mentoring](#student-research-mentoring)
 
 ## University Service
 
@@ -12,6 +12,14 @@ description: "Service to the University"
 - Committee Member, College Curriculum Committee (Fall 2024 - Spring 2025) 
 - Committee Member, Department Curriculum Committee (Fall 2024 - Spring 2025) 
 - Committee Member, University Student Admission and Retention Committee (Fall 2022 - Spring 2024) 
+
+## Student Competition Advising
+
+Faculty Advisor, [CFA Institute Research Challenge](/service/cfa-research-challenge/). In this annual global equity research competition, student teams analyze a publicly traded company, write a research report with a buy, sell, or hold recommendation, and present it to industry professionals.
+
+**2026 - 2027 Season** (4 students)
+
+- Kean University's first season in the competition. The team is analyzing Compass, Inc. in the CFA Society New York local round.
 
 ## Student Research Mentoring
 
